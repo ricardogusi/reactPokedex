@@ -1,38 +1,16 @@
-.App {
-  text-align: center;
+body {
+    font-family: Roboto;
+    margin: 0;
+    padding: 0;
+    background: rgb(49, 57, 83);
+    /* background:
+    -webkit-linear-gradient(65deg, hsla(47.52, 100%, 50.98%, 1) 10%, hsla(47.52, 100%, 50.98%, 0) 80%),
+    -webkit-linear-gradient(135deg, hsla(204.59, 95.87%, 42.9%, 1) 15%, hsla(204.59, 95.87%, 42.9%, 0) 80%),
+    -webkit-linear-gradient(205deg, hsla(155.8, 94.18%, 47.15%, 1) 100%, hsla(155.8, 94.18%, 47.15%, 0) 70%);
+  background:
+    linear-gradient(25deg, hsla(47.52, 100%, 50.98%, 1) 10%, hsla(47.52, 100%, 50.98%, 0) 80%),
+    linear-gradient(315deg, hsla(204.59, 95.87%, 42.9%, 1) 15%, hsla(204.59, 95.87%, 42.9%, 0) 80%),
+    linear-gradient(245deg, hsla(155.8, 94.18%, 47.15%, 1) 100%, hsla(155.8, 94.18%, 47.15%, 0) 70%);
+    background-size:  120% ; */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}

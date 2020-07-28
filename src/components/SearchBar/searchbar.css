@@ -1,0 +1,46 @@
+.searchbar {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #ce1030;
+  width: 100%;
+  height: 60px;
+}
+img {
+  margin-left: 5px;
+  margin-top: 5px;
+  width: 220px;
+  height: 50px;
+}
+
+input {
+  border-radius: 5px;
+  height: 20px;
+  margin-left: 80px;
+  align-self: center;
+}
+
+::-webkit-input-placeholder {
+  color: rgb(216, 216, 216);
+}
+
+
+
+label {
+  color: #ffffff;
+}
+
+.options {
+  margin-left: 50px;
+  align-self: center;
+}
+
+.select {
+    
+    border-radius: 10px;
+    background: #ffffff;
+}
+
+
+
