@@ -1,15 +1,8 @@
-import React  from "react";
+import React from "react";
 import "./pokedex.css";
-import Card from '../Card/Card'
-import Squirtle from '../../assets/squirtle.png'
-
-export default function Pokedex() {
-
-    // const [name, setName] = useState('')
-
-    
 
 
+export default function Pokedex(props) {
   return (
     <div className="pokedex">
       <div className="left">
@@ -29,7 +22,8 @@ export default function Pokedex() {
                 <div className="redBtn btn small" />
                 <div className="redBtn btn small" />
               </div>
-              <div className="screen-black"><Card photo={<img className="poke" src={Squirtle} alt="squirtle"/>} /></div>
+              <div className="screen-green">{props.photo}</div>
+
               <div className="screen-bottom-btn">
                 <div className="redBtn btn medium" />
                 <div className="burger">
@@ -47,8 +41,8 @@ export default function Pokedex() {
             <div className="commands-central">
               <div className="longBtn redBtn" />
               <div className="longBtn blueBtn" />
-              <div className="greenScreen medlargeScreen">
-                <Card number={<span className="number">#7</span>} />
+              <div className="greenScreen medlargeScreen number">
+                {'#' + props.number}
               </div>
             </div>
             <div className="croix" />
@@ -62,7 +56,7 @@ export default function Pokedex() {
 
       <div className="right-wrapper">
         <div className="right">
-          <div className="greenScreen largeScreen"><Card name={<span className="name">Squirtle</span>} /></div>
+          <div className="greenScreen largeScreen name">{props.name}</div>
           <div className="gridBtn blueGrid">
             <div className="gridCell" />
             <div className="gridCell" />

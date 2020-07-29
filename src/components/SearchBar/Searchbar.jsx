@@ -1,23 +1,17 @@
-import React, { useState  } from "react";
+import React from "react";
 import "./searchbar.css";
 import Logo from "../../assets/pokedexlogo.png";
 
-export default function SearchBar() {
-  const [value, setValue] = useState("");
-
+export default function SearchBar(props) {
   
-  const handleValue = (e) => {
-    setValue(e.target.value);
-  };
-
   return (
     <div className="searchbar">
       <img src={Logo} alt="reactPokedexLogo" />
       <input
         type="text"
         placeholder="Digite o nome do Pokemon"
-        onChange={handleValue}
-        value={value}
+        onChange={props.updateValue}
+        
       />
       <div className="options">
         <label>
