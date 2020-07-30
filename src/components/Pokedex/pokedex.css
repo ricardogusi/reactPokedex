@@ -3,35 +3,14 @@
     margin: 0;
     padding: 0;
     -webkit-box-sizing: border-box;
-    box-sizing: border-box;
+    
 }
 
-html {
-    font-size: 62.5%;
-}
-
-body {
-    font-size: 1.4rem;
-    font-family: "Ubuntu", sans-serif;
-    color: rgb(255, 255, 255);
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-pack: space-evenly;
-    -ms-flex-pack: space-evenly;
-    justify-content: space-evenly;
-    height: 100vh;
-    width: 100%;
-}
 
 .pokedex {
+    
+    
+    margin: 50px auto;
     height: 400px;
     width: 630px;
     background-color: transparent;

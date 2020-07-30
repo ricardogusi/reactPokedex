@@ -1,12 +1,26 @@
 import React from "react";
+import {useHistory, Link} from 'react-router-dom'
 import "./searchbar.css";
 import Logo from "../../assets/pokedexlogo.png";
 
 export default function SearchBar(props) {
+
+
+  let history = useHistory();
+
+  function handlePage(value) {
+    history.push(`${value}`);
+  }
+
+  
+
+
   
   return (
     <div className="searchbar">
+      <Link to="/">  
       <img src={Logo} alt="reactPokedexLogo" />
+      </Link>
       <input
         type="text"
         placeholder="Digite o nome do Pokemon"
@@ -16,9 +30,14 @@ export default function SearchBar(props) {
       <div className="options">
         <label>
           {"Escolha por tipo: "}
-          <select className="select">
+            
+          <select className="select" onChange={event => handlePage(event.target.value)}>
             <option defaultValue=" "></option>
-            <option value="Normal">Normal</option>
+
+
+            <option onClick={handlePage} value="Normal">Normal</option>
+
+
             <option value="Fighting">Fighting</option>
             <option value="Flying">Flying</option>
             <option value="Poison">Poison</option>
@@ -38,6 +57,7 @@ export default function SearchBar(props) {
             <option value="Fairy">Fairy</option>
             <option value="Shadow">Shadow</option>
           </select>
+            
         </label>
       </div>
     </div>

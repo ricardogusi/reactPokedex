@@ -1,0 +1,33 @@
+
+.botaoContainer {
+    display: flex;
+    justify-content: center;     
+
+}
+
+.botao {
+    display: flex;
+    border: solid 4px rgba(255, 255, 255, 0.4);
+    border-radius: 50px;
+    width: 100px;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    font-family: Helvetica;
+    font-weight: bold;
+}
+
+ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+    flex-wrap: wrap;
+    margin-top: 15px;
+    
+}
+
+li {
+    padding: 10px;
+}
