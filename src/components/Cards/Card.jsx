@@ -1,13 +1,13 @@
 import React from "react";
 import "./card.css";
 
-export default function Card({ name, hp, attack, defense }) {
+export default function Card({ name, hp, attack, defense, id }) {
   return (
     <div className="card">
       <div className="top">
         <img
           className="pokemonPhoto"
-          src="https://pokeres.bastionbot.org/images/pokemon/133.png"
+          src={`https://pokeres.bastionbot.org/images/pokemon/${id}.png`}
           alt="pokemon"
         />
       </div>

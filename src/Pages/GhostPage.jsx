@@ -3,10 +3,10 @@ import SearchBar from "../components/SearchBar/Searchbar";
 import Card from "../components/Cards/Card";
 import "./pages.css";
 
-const type = 1 
-const limit = 22
-const color = "linear-gradient(110deg, #FDBB2D 0%, #3A1C71 100%)";
-const botaoCentral = "Normal"
+const type = 8 
+const limit = 3
+const color = "linear-gradient(100deg, #140c0d 10%, #857c96 100%)";
+const botaoCentral = "Ghost"
 
 export default function NormalPage() {
   const [names, setNames] = useState([]);
@@ -20,7 +20,7 @@ export default function NormalPage() {
     get();
 
     document.body.style.background = color;
-    document.body.style.height = "450vh";
+    document.body.style.height = "100vh";
   }, []);
 
   const get = async () => {

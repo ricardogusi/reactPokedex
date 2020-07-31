@@ -35,9 +35,8 @@ export default function SearchBar(props) {
             <option defaultValue=" "></option>
 
 
-            <option onClick={handlePage} value="Normal">Normal</option>
-
-
+            <option value="All">All</option>
+            <option value="Normal">Normal</option>
             <option value="Fighting">Fighting</option>
             <option value="Flying">Flying</option>
             <option value="Poison">Poison</option>
@@ -52,10 +51,8 @@ export default function SearchBar(props) {
             <option value="Electric">Electric</option>
             <option value="Psychic">Psychic</option>
             <option value="Ice">Ice</option>
-            <option value="Dragon">Dragon</option>
-            <option value="Dark">Dark</option>
+            <option value="Dragon">Dragon</option>            
             <option value="Fairy">Fairy</option>
-            <option value="Shadow">Shadow</option>
           </select>
             
         </label>
