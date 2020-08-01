@@ -1,20 +1,37 @@
 import React, { useState, useEffect } from "react";
 import SearchBar from "../components/SearchBar/Searchbar";
 import Pokedex from "../components/Pokedex/Pokedex";
-import './pages.css'
+import { useMediaQuery } from "react-responsive";
+
+import "./pages.css";
+import CardMobile from "../components/Cards/CardMobile";
 
 export default function Home() {
+  const isDesktopOrLaptop = useMediaQuery({
+    query: "(min-device-width: 767px)",
+  });
+  const isMobile = useMediaQuery({
+    query: "(max-width: 767px)",
+  });
+
   const [name, setName] = useState("");
   const [number, setNumber] = useState(0);
   const [value, setValue] = useState("");
-  const color = "linear-gradient(to bottom right, rgba(53,106,188,1), rgba(255,205,0,.7))"
+  const color =
+    "linear-gradient(to bottom right, rgba(53,106,188,1), rgba(255,205,0,.7))";
 
   const photo = `https://pokeres.bastionbot.org/images/pokemon/${number}.png`;
 
   useEffect(() => {
     get();
+    
     document.body.style.background = color;
-    document.body.style.height = "120vh"
+    // eslint-disable-next-line no-lone-blocks
+    {
+      isDesktopOrLaptop
+        ? (document.body.style.height = "120vh")
+        : (document.body.style.height = "100vh");
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value]);
 
@@ -40,15 +57,25 @@ export default function Home() {
   };
 
   return (
-    <div className="container">
+    <div className="container" style={{}}>
       <SearchBar updateValue={handleValue} />
-      <div className="container">
-      <Pokedex
-        name={name.toUpperCase()}
-        number={number}
-        photo={<img src={photo} alt={name} />}
-      />
-      </div>
+      {isDesktopOrLaptop && (
+        <div className="container">
+          <Pokedex
+            name={name.toUpperCase()}
+            number={number}
+            photo={<img src={photo} alt={name} />}
+          />
+        </div>
+      )}
+
+      {isMobile && (
+        <CardMobile
+          name={name.toUpperCase()}
+          photo={<img src={photo} alt={name} />}
+          id={number}
+        />
+      )}
     </div>
   );
 }

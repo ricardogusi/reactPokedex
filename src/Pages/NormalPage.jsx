@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useMediaQuery } from "react-responsive";
 import SearchBar from "../components/SearchBar/Searchbar";
 import Card from "../components/Cards/Card";
 import "./pages.css";
@@ -9,6 +10,15 @@ const color = "linear-gradient(110deg, #FDBB2D 0%, #3A1C71 100%)";
 const botaoCentral = "Normal"
 
 export default function NormalPage() {
+
+  const isDesktopOrLaptop = useMediaQuery({
+    query: "(min-device-width: 767px)",
+  });
+  const isMobile = useMediaQuery({
+    query: "(max-width: 767px)",
+  });
+
+
   const [names, setNames] = useState([]);
   const [ids, setIds] = useState([]);
   const [hps, setHps] = useState([]);
@@ -19,8 +29,13 @@ export default function NormalPage() {
   useEffect(() => {
     get();
 
-    document.body.style.background = color;
-    document.body.style.height = "450vh";
+    // eslint-disable-next-line no-lone-blocks
+    { isDesktopOrLaptop ? 
+      document.body.style.height = "440vh"
+      : document.body.style.height = "1490vh"
+    }
+    document.body.style.background = color 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const get = async () => {
