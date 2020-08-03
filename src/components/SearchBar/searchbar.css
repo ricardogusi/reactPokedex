@@ -18,6 +18,7 @@ input {
   height: 20px;
   margin-left: 80px;
   align-self: center;
+  margin-top: 20px;
 }
 
 ::-webkit-input-placeholder {

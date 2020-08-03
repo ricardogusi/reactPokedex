@@ -57,3 +57,10 @@
 .mobile {
     margin: 25px auto;
 }
+
+.imgCard {
+    width: 100%;
+    height: 230px;
+    margin: 0;
+    
+}

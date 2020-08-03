@@ -5,6 +5,9 @@ import Logo from "../../assets/pokedexlogo.png";
 import { useMediaQuery } from "react-responsive";
 
 export default function SearchBar(props) {
+
+  
+
   const isDesktopOrLaptop = useMediaQuery({
     query: "(min-device-width: 1224px)",
   });
@@ -18,6 +21,9 @@ export default function SearchBar(props) {
     history.push(`${value}`);
   }
 
+
+  
+
   return (
     <>
       {isDesktopOrLaptop && (
@@ -25,11 +31,14 @@ export default function SearchBar(props) {
           <Link to="/">
             <img src={Logo} alt="reactPokedexLogo" />
           </Link>
+          <Link to="/" >
           <input
             type="text"
             placeholder="Digite o nome do Pokemon"
             onChange={props.updateValue}
+            autoFocus={props.focus}            
           />
+          </Link>
           <div className="options">
             <label>
               {"Escolha por tipo: "}
@@ -69,12 +78,17 @@ export default function SearchBar(props) {
           <Link to="/">
             <img src={Logo} alt="reactPokedexLogo" />
           </Link>
+
+          <Link to="/" >
           <input
           className="inputMobile"
             type="text"
             placeholder="Digite o nome do Pokemon"
             onChange={props.updateValue}
+            autoFocus={props.focus}  
+            
           />
+        </Link>
           <div className="options optionsMobile">
             <label>
               {"Escolha por tipo: "}

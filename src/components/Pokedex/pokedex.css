@@ -287,12 +287,14 @@ div.redBtn.btn.small:nth-of-type(2) {
     width: 100%;
     height: 100%;
     
+    
 }
 
 .screen-green img{
-    width: 100px;
-    height: 100px;
-    margin-left: 40px;
+    width: 120px;
+    height: 120px;
+    margin: 0 30px;
+    
     
 }
 
@@ -535,6 +537,22 @@ div.redBtn.btn.small:nth-of-type(2) {
     border-radius: 3px;
     height: 90px;
     grid-column: 1/-1;
+    font-size: 14px;
+    
+}
+
+.textContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    justify-content: space-evenly;
+}
+
+.statsName {
+    padding: 10px;
+    margin: 0 auto;
 }
 
 .gridBtn.blueGrid {

@@ -1,12 +1,24 @@
 import React, { useState, useEffect } from "react";
+import { useMediaQuery } from "react-responsive";
 import SearchBar from "../components/SearchBar/Searchbar";
 import Pokedex from "../components/Pokedex/Pokedex";
-import { useMediaQuery } from "react-responsive";
 
 import "./pages.css";
 import CardMobile from "../components/Cards/CardMobile";
 
+
+
 export default function Home() {
+
+  function importAll(r) {
+    let images = {};
+    // eslint-disable-next-line array-callback-return
+    r.keys().map((item, index) => { images[item.replace('./', '')] = r(item); });
+     return images;
+      }
+
+    const images = importAll(require.context('../assets/pokemons/', false,/\.(png|jpe?g|svg)$/));
+
   const isDesktopOrLaptop = useMediaQuery({
     query: "(min-device-width: 767px)",
   });
@@ -17,23 +29,24 @@ export default function Home() {
   const [name, setName] = useState("");
   const [number, setNumber] = useState(0);
   const [value, setValue] = useState("");
+  const [hp, setHp] = useState([]);
+  const [attack, setAttack] = useState([]);
+  const [defense, setDefense] = useState([]);
+  
   const color =
     "linear-gradient(to bottom right, rgba(53,106,188,1), rgba(255,205,0,.7))";
 
-  const photo = `https://pokeres.bastionbot.org/images/pokemon/${number}.png`;
-
   useEffect(() => {
+    const ac = new AbortController();
     get();
-    
+
     document.body.style.background = color;
-    // eslint-disable-next-line no-lone-blocks
-    {
-      isDesktopOrLaptop
-        ? (document.body.style.height = "120vh")
-        : (document.body.style.height = "100vh");
-    }
+
+    document.body.style.height = "100vh";
+
+    return () => ac.abort();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [value]);
+  }, [value, number]);
 
   const get = async () => {
     const response = await fetch("https://pokeapi.co/api/v2/pokedex/2/");
@@ -47,8 +60,23 @@ export default function Home() {
         if (pokemonName === value) {
           setName(pokemonName);
           setNumber(pokemonsNumber);
+          
         }
       });
+    }
+
+    if (number > 0) {
+      fetch(`https://pokeapi.co/api/v2/pokemon/${number}/`)
+        .then((res) => res.json())
+        .then((dataUrl) => {
+          const hp = dataUrl.stats[0].base_stat;
+          const attack = dataUrl.stats[1].base_stat;
+          const defense = dataUrl.stats[2].base_stat;
+
+          setHp(hp);
+          setAttack(attack);
+          setDefense(defense);
+        });
     }
   };
 
@@ -58,13 +86,16 @@ export default function Home() {
 
   return (
     <div className="container" style={{}}>
-      <SearchBar updateValue={handleValue} />
+      <SearchBar focus={true} updateValue={handleValue} />
       {isDesktopOrLaptop && (
         <div className="container">
           <Pokedex
             name={name.toUpperCase()}
+            hp={hp}
+            attack={attack}
+            defense={defense}
             number={number}
-            photo={<img src={photo} alt={name} />}
+            photo={<img src={images[`${number}.png`]} alt={name} />}
           />
         </div>
       )}
@@ -72,8 +103,11 @@ export default function Home() {
       {isMobile && (
         <CardMobile
           name={name.toUpperCase()}
-          photo={<img src={photo} alt={name} />}
+          photo={<img src={images[`${number}.png`]} alt={name} />}
           id={number}
+          hp={hp}
+          attack={attack}
+          defense={defense}
         />
       )}
     </div>

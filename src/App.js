@@ -1,7 +1,6 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-
 import Home from "./Pages/Home";
 import NormalPage from "./Pages/NormalPage";
 import FightingPage from "./Pages/FightingPage";
@@ -22,17 +21,13 @@ import DragonPage from "./Pages/DragonPage";
 import FairyPage from "./Pages/FairyPage";
 import AllPage from "./Pages/AllPage";
 
-
-
 function App() {
   return (
     <BrowserRouter>
       <Switch>
-
         <Route exact path="/">
           <Home />
         </Route>
-
         <Route path="/All">
           <AllPage />
         </Route>
