@@ -90,7 +90,7 @@ export default function Home() {
       {isDesktopOrLaptop && (
         <div className="container">
           <Pokedex
-            name={name.toUpperCase()}
+            name={name.toLowerCase()}
             hp={hp}
             attack={attack}
             defense={defense}
@@ -102,7 +102,7 @@ export default function Home() {
 
       {isMobile && (
         <CardMobile
-          name={name.toUpperCase()}
+          name={name.toLowerCase()}
           photo={<img src={images[`${number}.png`]} alt={name} />}
           id={number}
           hp={hp}
