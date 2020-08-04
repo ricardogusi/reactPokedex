@@ -81,7 +81,7 @@ export default function Home() {
   };
 
   const handleValue = (e) => {
-    setValue(e.target.value);
+    setValue(e.target.value.toLowerCase());
   };
 
   return (
@@ -90,7 +90,7 @@ export default function Home() {
       {isDesktopOrLaptop && (
         <div className="container">
           <Pokedex
-            name={name.toLowerCase()}
+            name={name.toUpperCase()}
             hp={hp}
             attack={attack}
             defense={defense}
@@ -102,7 +102,7 @@ export default function Home() {
 
       {isMobile && (
         <CardMobile
-          name={name.toLowerCase()}
+          name={name.toUpperCase()}
           photo={<img src={images[`${number}.png`]} alt={name} />}
           id={number}
           hp={hp}
