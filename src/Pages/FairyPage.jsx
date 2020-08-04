@@ -9,10 +9,8 @@ export default function FairyPage() {
         <PageDefault
           botaoCentral={"Fairy"}
           type="18"
-          limit="9"
-          color="linear-gradient(100deg, #f9d0d4 10%, #deabb6  100%)"
-          desktopSize={"230vh"}
-          mobileSize={"635vh"}
+          limit="5"
+          color="linear-gradient(100deg, #f9d0d4 10%, #deabb6  100%)"          
         />
       </div>
     </div>

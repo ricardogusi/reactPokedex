@@ -11,8 +11,7 @@ export default function DragonPage() {
           type="16"
           limit="3"
           color="linear-gradient(100deg, #79afde 10%, #f3b76e  100%)"
-          desktopSize={"100vh"}
-          mobileSize={"250vh"}
+        
         />
       </div>
     </div>

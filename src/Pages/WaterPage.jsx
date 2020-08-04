@@ -11,8 +11,7 @@ export default function WaterPage() {
           type="11"
           limit="32"
           color="linear-gradient(100deg, #577fb1 10%, #83c7d6 100%)"
-          desktopSize={"565vh"}
-          mobileSize={"2150vh"}
+       
         />
       </div>
     </div>

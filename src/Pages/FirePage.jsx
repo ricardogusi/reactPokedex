@@ -11,8 +11,7 @@ export default function FirePage() {
           type="10"
           limit="12"
           color="linear-gradient(100deg, #ea673a 10%, #f9d764 100%)"
-          desktopSize={"230vh"}
-          mobileSize={"835vh"}
+         
         />
       </div>
     </div>

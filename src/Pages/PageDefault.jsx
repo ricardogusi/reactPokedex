@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { useMediaQuery } from "react-responsive";
 import SearchBar from "../components/SearchBar/Searchbar";
 import Card from "../components/Cards/Card";
 import "./pages.css";
 
 export default function PageDefault(props) {
-  const isDesktopOrLaptop = useMediaQuery({
-    query: "(min-device-width: 767px)",
-  });
+  
 
   const [names, setNames] = useState([]);
   const [ids, setIds] = useState([]);
@@ -18,12 +15,8 @@ export default function PageDefault(props) {
   useEffect(() => {
     get();
 
-    // eslint-disable-next-line no-lone-blocks
-    {
-      isDesktopOrLaptop
-        ? (document.body.style.height = `${props.desktopSize}`)
-        : (document.body.style.height = `${props.mobileSize}`);
-    }
+    document.body.style.height = "100%";
+
     document.body.style.background = `${props.color}`;
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

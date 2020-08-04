@@ -1,6 +1,6 @@
 import React from "react";
 import "./card.css";
-
+import LazyLoad from 'react-lazyload';
 
 
 
@@ -21,9 +21,9 @@ export default function Card({ name, hp, attack, defense, id }) {
     <div className="card">
       <div className="top">
         
-        
+      <LazyLoad height={200} once >
       <img className="imgCard" src={images[`${id}.png`]} alt={id} />
-      
+      </LazyLoad> 
                
        
       </div>

@@ -11,8 +11,7 @@ export default function FightingPage() {
           type="2"
           limit="8"
           color="linear-gradient(110deg, #a1b4c5 0%, #c1665f 90%)"
-          desktopSize={"165vh"}
-          mobileSize={"570vh"}
+        
         />
       </div>
     </div>

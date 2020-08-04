@@ -11,8 +11,7 @@ export default function GrassPage() {
           type="12"
           limit="14"
           color="linear-gradient(100deg, #679375 10%, #84ccb1 100%)"
-          desktopSize={"295vh"}
-          mobileSize={"965vh"}
+     
         />
       </div>
     </div>

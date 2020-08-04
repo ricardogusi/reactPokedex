@@ -11,8 +11,7 @@ export default function PsychicPage() {
           type="14"
           limit="14"
           color="linear-gradient(100deg, #987994 10%, #f8d9e1 100%)"
-          desktopSize={"298vh"}
-          mobileSize={"965vh"}
+   
         />
       </div>
     </div>

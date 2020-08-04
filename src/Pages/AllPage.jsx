@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useMediaQuery } from "react-responsive";
+import LazyLoad from 'react-lazyload';
 
 import SearchBar from "../components/SearchBar/Searchbar";
 import Card from "../components/Cards/Card";
@@ -9,10 +9,8 @@ const limit = 151;
 const color = "linear-gradient(100deg, #4d75a5 0%, #ffcd00  100%)";
 const botaoCentral = "All";
 
-export default function NormalPage() {
-  const isDesktopOrLaptop = useMediaQuery({
-    query: "(min-device-width: 767px)",
-  });
+export default function AllPage() {
+ 
 
   const [names, setNames] = useState([]);
   const [ids, setIds] = useState([]);
@@ -24,15 +22,12 @@ export default function NormalPage() {
     get();
 
     document.body.style.background = color;
-    // eslint-disable-next-line no-lone-blocks
-    {
-      isDesktopOrLaptop
-        ? (document.body.style.height = "2585vh")
-        : (document.body.style.height = "9970vh");
-    }
+    
+         document.body.style.height = "100%"
+        
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
+ 
   const get = async () => {
     const response = await fetch("https://pokeapi.co/api/v2/pokedex/1/");
     const data = await response.json();
@@ -43,7 +38,7 @@ export default function NormalPage() {
       const id = pokemons[i].entry_number;
 
       setNames((prev) => [...prev, pokemonName]);
-
+      
       fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
         .then((res) => res.json())
         .then((dataUrl) => {
@@ -56,7 +51,7 @@ export default function NormalPage() {
           setAttacks((prev) => [...prev, attack]);
           setDefenses((prev) => [...prev, defense]);
           setIds((prev) => [...prev, id]);
-        });
+       });
     }
   };
 
@@ -72,13 +67,15 @@ export default function NormalPage() {
         <ul>
           {names.map((name, i) => (
             <li key={i}>
+              <LazyLoad height={200}>
               <Card
                 name={name.toUpperCase()}
                 hp={hps[i]}
                 attack={attacks[i]}
                 defense={defenses[i]}
                 id={ids[i]}
-              />
+                />
+                </LazyLoad>
             </li>
           ))}
         </ul>

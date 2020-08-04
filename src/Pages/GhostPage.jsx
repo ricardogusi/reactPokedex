@@ -10,9 +10,7 @@ export default function GhostPage() {
           botaoCentral={"Ghost"}
           type="8"
           limit="3"
-          color="linear-gradient(100deg, #140c0d 10%, #857c96 100%)"
-          desktopSize={"100vh"}
-          mobileSize={"245vh"}
+          color="linear-gradient(100deg, #140c0d 10%, #857c96 100%)"      
         />
       </div>
     </div>

@@ -24,6 +24,7 @@ import AllPage from "./Pages/AllPage";
 function App() {
   return (
     <BrowserRouter>
+    
       <Switch>
         <Route exact path="/">
           <Home />

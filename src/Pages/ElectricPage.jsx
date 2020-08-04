@@ -11,8 +11,7 @@ export default function ElectricPage() {
           type="13"
           limit="9"
           color="linear-gradient(100deg, #f6e383 10%, #d0b96e 100%)"
-          desktopSize={"230vh"}
-          mobileSize={"640vh"}
+      
         />
       </div>
     </div>

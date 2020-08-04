@@ -11,8 +11,7 @@ export default function GroundPage() {
           type="5"
           limit="14"
           color="linear-gradient(100deg, #674528 10%, #8d918c 100%)"
-          desktopSize={"297vh"}
-          mobileSize={"965vh"}
+      
         />
       </div>
     </div>

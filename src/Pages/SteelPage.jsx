@@ -11,8 +11,7 @@ export default function SteelPage() {
           type="9"
           limit="2"
           color="linear-gradient(100deg, #919194 10%, #6e6a77 100%)"
-          desktopSize={"100vh"}
-          mobileSize={"180vh"}
+   
         />
       </div>
     </div>

@@ -11,8 +11,7 @@ export default function IcePage() {
           type="15"
           limit="5"
           color="linear-gradient(100deg, #94c0e3 10%, #81c7e7 100%)"
-          desktopSize={"160vh"}
-          mobileSize={"375vh"}
+    
         />
       </div>
     </div>

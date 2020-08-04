@@ -11,8 +11,7 @@ export default function NormalPage() {
           type="1"
           limit="22"
           color="linear-gradient(110deg, #FDBB2D 0%, #3A1C71 100%)"
-          desktopSize={"433vh"}
-          mobileSize={"1490vh"}
+    
         />
       </div>
     </div>

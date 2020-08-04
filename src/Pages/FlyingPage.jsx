@@ -11,8 +11,7 @@ export default function FlyingPage() {
           type="3"
           limit="19"
           color="linear-gradient(110deg, #7abbcb 0%, #e1ebe5 100%)"
-          desktopSize={"365vh"}
-          mobileSize={"1290vh"}
+        
         />
       </div>
     </div>
