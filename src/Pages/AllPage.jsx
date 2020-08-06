@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import LazyLoad from 'react-lazyload';
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
+// import Loader from 'react-loader-spinner'
 
 import SearchBar from "../components/SearchBar/Searchbar";
 import Card from "../components/Cards/Card";
@@ -17,15 +19,16 @@ export default function AllPage() {
   const [hps, setHps] = useState([]);
   const [attacks, setAttacks] = useState([]);
   const [defenses, setDefenses] = useState([]);
+  
 
   useEffect(() => {
     get();
 
     document.body.style.background = color;
     
-         document.body.style.height = "100%"
+    document.body.style.height = "100%"
         
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    
   }, []);
  
   const get = async () => {
@@ -53,6 +56,7 @@ export default function AllPage() {
           setIds((prev) => [...prev, id]);
        });
     }
+    
   };
 
   return (
@@ -64,18 +68,30 @@ export default function AllPage() {
         </div>
       </div>
       <div className="cardContainer">
-        <ul>
+
+          {/* <Loader
+         type="Puff"
+         color="#00BFFF"
+         height={100}
+         width={100}
+         timeout={3000} //3 secs
+ 
+      /> */}
+      :<ul>
           {names.map((name, i) => (
             <li key={i}>
               <LazyLoad height={200}>
+            
               <Card
                 name={name.toUpperCase()}
                 hp={hps[i]}
                 attack={attacks[i]}
                 defense={defenses[i]}
                 id={ids[i]}
+                
                 />
                 </LazyLoad>
+                
             </li>
           ))}
         </ul>

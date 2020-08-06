@@ -12,42 +12,48 @@ export default function PageDefault(props) {
   const [attacks, setAttacks] = useState([]);
   const [defenses, setDefenses] = useState([]);
 
-  useEffect(() => {
-    get();
 
+
+  useEffect( () => {
+    
+    const get = async () => {
+      const response = await fetch(
+        `https://pokeapi.co/api/v2/type/${props.type}/`
+      );
+      const data = await response.json();
+      const pokemons = await data.pokemon;
+  
+      for (let i = 0; i < `${props.limit}`; i++) {
+        const pokemonName = pokemons[i].pokemon.name;
+  
+        setNames((prev) => [...prev, pokemonName]);
+  
+        fetch(pokemons[i].pokemon.url)
+          .then((res) => res.json())
+          .then((dataUrl) => {
+            const hp = dataUrl.stats[0].base_stat;
+            const attack = dataUrl.stats[1].base_stat;
+            const defense = dataUrl.stats[2].base_stat;
+            const id = dataUrl.id;
+  
+            setHps((prev) => [...prev, hp]);
+            setAttacks((prev) => [...prev, attack]);
+            setDefenses((prev) => [...prev, defense]);
+            setIds((prev) => [...prev, id]);
+          });
+      }
+    };
+    
     document.body.style.height = "100%";
-
+    
     document.body.style.background = `${props.color}`;
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    
+    
+    get()
+        
+  }, [props]);
 
-  const get = async () => {
-    const response = await fetch(
-      `https://pokeapi.co/api/v2/type/${props.type}/`
-    );
-    const data = await response.json();
-    const pokemons = await data.pokemon;
-
-    for (let i = 0; i < `${props.limit}`; i++) {
-      const pokemonName = pokemons[i].pokemon.name;
-
-      setNames((prev) => [...prev, pokemonName]);
-
-      fetch(pokemons[i].pokemon.url)
-        .then((res) => res.json())
-        .then((dataUrl) => {
-          const hp = dataUrl.stats[0].base_stat;
-          const attack = dataUrl.stats[1].base_stat;
-          const defense = dataUrl.stats[2].base_stat;
-          const id = dataUrl.id;
-
-          setHps((prev) => [...prev, hp]);
-          setAttacks((prev) => [...prev, attack]);
-          setDefenses((prev) => [...prev, defense]);
-          setIds((prev) => [...prev, id]);
-        });
-    }
-  };
+  
 
   return (
     <div className="container">
